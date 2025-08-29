@@ -1,0 +1,55 @@
+{
+    "manifest_version": 3,
+    "name": "NoteNest",
+    "version": "1.0",
+    "description": "A beautiful note-taking extension with folders and rich-text editing",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content_script.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "action": {
+        "default_title": "NoteNest",
+        "default_icon": {
+            "16": "Screenshot 2025-08-27 at 8.40.53 PM.png",
+            "32": "Screenshot 2025-08-27 at 8.40.53 PM.png",
+            "48": "Screenshot 2025-08-27 at 8.40.53 PM.png",
+            "128": "Screenshot 2025-08-27 at 8.40.53 PM.png"
+        }
+    },
+    "commands": {
+        "toggle-sidebar": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "Command+Ctrl+Option+F"
+            },
+            "description": "Toggle NoteNest sidebar"
+        }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "sidebar.html",
+                "sidebar.css",
+                "sidebar_ui.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}

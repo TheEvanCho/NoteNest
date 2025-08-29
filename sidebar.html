@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteNest Sidebar</title>
+    <link rel="stylesheet" href="sidebar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main container -->
+    <div id="app">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">📝</span>
+                <span class="logo-text">NoteNest</span>
+            </div>
+            <button id="close-btn" class="close-btn" title="Close sidebar">×</button>
+        </div>
+
+        <!-- Main content area -->
+        <div class="main-content">
+            <!-- Left panel - Folders and Notes -->
+            <div class="left-panel">
+                <div class="section">
+                    <div class="section-header">
+                        <h3>Folders</h3>
+                        <button id="add-folder-btn" class="add-btn" title="Add folder">+</button>
+                    </div>
+                    <div id="folders-list" class="folders-list"></div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <h3>Notes</h3>
+                        <button id="add-note-btn" class="add-btn" title="Add note">+</button>
+                    </div>
+                    <div id="notes-list" class="notes-list"></div>
+                </div>
+            </div>
+
+            <!-- Right panel - Editor -->
+            <div class="right-panel">
+                <div class="editor-header">
+                    <input type="text" id="note-title" placeholder="Untitled Note" class="note-title">
+                    <div class="toolbar">
+                        <!-- Headings -->
+                        <select id="heading-select" class="toolbar-select">
+                            <option value="p">Paragraph</option>
+                            <option value="h1">Heading 1</option>
+                            <option value="h2">Heading 2</option>
+                            <option value="h3">Heading 3</option>
+                        </select>
+
+                        <!-- Formatting buttons -->
+                        <button class="toolbar-btn" data-command="bold" title="Bold (Ctrl+B)"><strong>B</strong></button>
+                        <button class="toolbar-btn" data-command="italic" title="Italic (Ctrl+I)"><em>I</em></button>
+                        
+                        <!-- Alignment -->
+                        <button class="toolbar-btn" data-command="justifyLeft" title="Align Left">←</button>
+                        <button class="toolbar-btn" data-command="justifyCenter" title="Align Center">↓</button>
+                        <button class="toolbar-btn" data-command="justifyRight" title="Align Right">→</button>
+
+                        <!-- Emoji button -->
+                        <button id="emoji-btn" class="toolbar-btn" title="Insert Emoji">😊</button>
+                    </div>
+                </div>
+
+                <!-- Rich text editor -->
+                <div id="editor" class="editor" contenteditable="true" placeholder="Start typing your note..."></div>
+
+                <!-- Status bar -->
+                <div class="status-bar">
+                    <span id="save-status">Saved</span>
+                    <span id="word-count">0 words</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emoji picker (hidden by default) -->
+        <div id="emoji-picker" class="emoji-picker hidden">
+            <div class="emoji-grid">
+                😀😃😄😁😆😅😂🤣😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🤩🥳😏😒😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤬🤯😳🥵🥶😱😨😰😥😓🤗🤔🤭🤫🤥😶😐😑😬🙄😯😦😧😮😲🥱😴🤤😪😵🤐🥴🤢🤮🤧😷🤒🤕🤑🤠😈👿👹👺🤡💩👻💀☠️👽👾🤖🎃😺😸😹😻😼😽🙀😿😾
+                ❤️🧡💛💚💙💜🤎🖤🤍💔❣️💕💞💓💗💖💘💝💟☮️✝️☪️🕉️☸️✡️🔯🕎☯️☦️🛐⛎♈♉♊♋♌♍♎♏♐♑♒♓🆔⚛️🉑☢️☣️🔴🔳🈶🈚🈸🈺🈷️✴️🆚💮🉐㊙️㊗️🈴🈵🈹🈲🅰️🅱️🆎🆑🅾️🆘❌⭕🛑⛔📛🚫💯💢♨️🚷🚯🚳🚱🔞📵🚭❗❕❓❔‼️⁉️🔅🔆〽️⚠️🚸🔱⚜️🔰♻️✅🈯💹❇️✳️❎🌐💠Ⓜ️🌀💤🏧🚾♿🅿️🈳🈂️🛂🛃🛄🛅🚹🚺🚼🚻🚮🎦📶🈁🔣ℹ️🔤🔡🔠🆖🆗🆙🆒🆕🆓0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟
+            </div>
+        </div>
+    </div>
+
+    <script src="sidebar_ui.js"></script>
+</body>
+</html>
